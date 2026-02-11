@@ -1,9 +1,17 @@
 # Nebula
 
-### Features
+Nebula is a Real-Time Code editor which allows multiple users to edit specific codebase at the same time.
 
-- [ ] Real-Time code Editor
-- [ ] Inbuilt Voice Call
-- [ ] User Authentication
-- [ ] Room / Session System
-- [ ] Shared Terminal
+## Features
+
+- Inbuilt Voice Call
+- User Authentication
+- Shared Terminal
+
+## Contributing
+
+Check [CONTRIBUTING.md](CONTRIBUTING.md) for more information
+
+## License
+
+The Project is licensed under [MIT License](./LICENSE)
