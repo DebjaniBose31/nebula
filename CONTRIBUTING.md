@@ -4,6 +4,7 @@
   - [Steps to contribute to Nebula](#steps-to-contribute-to-nebula)
   - [Commit Message Guidelines](#commit-message-guidelines)
     - [Valid Types](#valid-types)
+  - [Setup Custom Hooks](#setup-custom-hooks)
   - [How to report a Bug](#how-to-report-a-bug)
   - [How to request a Feature](#how-to-request-a-feature)
   - [Installation](#installation)
@@ -46,6 +47,14 @@ Nebula enforces **Conventional Commits** to maintain a clean and automated histo
 - `perf`: Performance improvements.
 
 **Example:** `feat(auth): add login functionality`
+
+## Setup Custom Hooks
+
+Use the following command to apply the custom hook, it blocks the commit if the commit message is not following a specific standard
+
+```sh
+git config core.hooksPath .githooks
+```
 
 ## How to report a Bug
 
