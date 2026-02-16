@@ -10,6 +10,10 @@ Nebula is a Real-Time Code editor which allows multiple users to edit specific c
 - User Authentication
 - Shared Terminal
 
+## Requirements
+
+Read [docs/requirements.md](./docs/requirements.md) for all the functional and non functional requirements
+
 ## Tech Stack
 
 - **Frontend:** React, SCSS
