@@ -1,5 +1,14 @@
 # Contributing
 
+> [!important]
+>
+> - If you are from JWoC program, then you should only request for assigning you the issue which labeled with `jwoc-2026`.
+> - And you should always ask first in the comments to assigning you the issue (It will happen with the first come first serve basis)
+> - Although you can create your own issue Just make sure to check the box `I am willing to help develop this feature`, so that when collaborators will verify the issue they can assign it to you directly.
+> - According to the JWoC, one user can be assigned to 3 unresolved issues at a time
+> - Always include `Resolves #issue-number` in the pull request description
+> - If you are not following the rules then contributors can reject your pull request
+
 - [Contributing](#contributing)
   - [Steps to contribute to Nebula](#steps-to-contribute-to-nebula)
   - [Commit Message Guidelines](#commit-message-guidelines)
