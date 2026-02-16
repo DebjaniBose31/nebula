@@ -96,7 +96,7 @@ async def refresh_access_token(refresh_token: str):
     """
     new_access_token = jwt_manager.refresh_access_token(refresh_token)
 
-    if new_access_token is None:
+    if new_access_token is None:  # gitleaks:allow
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired refresh token",
