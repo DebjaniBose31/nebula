@@ -1,13 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
+import Home from "../features/home/Home";
 import Login from "../features/login/Login";
 import Register from "../features/register/Register";
 
-type AppRoute = "/login" | "/register";
+type AppRoute = "/" | "/login" | "/register";
 
-const DEFAULT_ROUTE: AppRoute = "/login";
+const DEFAULT_ROUTE: AppRoute = "/";
 
 const isAppRoute = (pathname: string): pathname is AppRoute =>
-  pathname === "/login" || pathname === "/register";
+  pathname === "/" || pathname === "/login" || pathname === "/register";
 
 const toAppRoute = (pathname: string): AppRoute =>
   isAppRoute(pathname) ? pathname : DEFAULT_ROUTE;
@@ -46,7 +47,17 @@ function AuthRouter() {
     return <Register onNavigateToLogin={() => navigate("/login")} />;
   }
 
-  return <Login onNavigateToRegister={() => navigate("/register")} />;
+  if (route === "/login") {
+    return <Login onNavigateToRegister={() => navigate("/register")} />;
+  }
+
+  return (
+    <Home
+      onNavigateToLogin={() => navigate("/login")}
+      onNavigateToRegister={() => navigate("/register")}
+    />
+  );
+
 }
 
 export default AuthRouter;
