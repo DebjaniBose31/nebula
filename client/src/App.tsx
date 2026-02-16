@@ -1,7 +1,7 @@
-import Login from "./features/login/Login";
+import AuthRouter from "./routes/AuthRouter";
 
 function App() {
-  return <Login />;
+  return <AuthRouter />;
 }
 
 export default App;
