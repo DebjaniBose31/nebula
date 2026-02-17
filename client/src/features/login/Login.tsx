@@ -1,7 +1,11 @@
 import { type FormEvent, useState } from "react";
 import "./Login.scss";
 
-function Login() {
+type LoginProps = {
+  onNavigateToSignup: () => void;
+};
+
+function Login({ onNavigateToSignup }: LoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -76,7 +80,16 @@ function Login() {
         ) : null}
 
         <p className="signup-copy">
-          New to Nebula? <a href="#">Create account</a>
+          New to Nebula?{" "}
+          <a
+            href="/signup"
+            onClick={(event) => {
+              event.preventDefault();
+              onNavigateToSignup();
+            }}
+          >
+            Create account
+          </a>
         </p>
       </section>
     </main>
