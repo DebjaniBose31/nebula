@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from passlib.context import CryptContext
-from models import User
+from server.models import User
 
 router = APIRouter()
 
@@ -42,4 +42,38 @@ async def register(user: RegisterUser):
     return {
         "result": True,
         "message": "Successfully registered"
+    }
+
+# ------- LOGIN API -------
+class LoginUser(BaseModel):
+    email: str
+    password: str
+
+
+@router.post("/api/user/login")
+async def login(user: LoginUser):
+
+    existing_user = await User.filter(email=user.email).first()
+
+    if not existing_user:
+        return JSONResponse(
+            status_code=404,
+            content={
+                "result": False,
+                "message": "user not found"
+            }
+        )
+
+    if not pwd_context.verify(user.password, existing_user.password):
+        return JSONResponse(
+            status_code=401,
+            content={
+                "result": False,
+                "message": "invalid password"
+            }
+        )
+
+    return {
+        "result": True,
+        "message": "login successful"
     }
