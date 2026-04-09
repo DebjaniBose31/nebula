@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from passlib.context import CryptContext
-from server.models import User
+from models import User
 
 router = APIRouter()
 

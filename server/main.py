@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from server.routes import auth
+from routes import auth
 from tortoise.contrib.fastapi import register_tortoise
 from dotenv import load_dotenv
 import os
@@ -21,7 +21,7 @@ DATABASE_URL = f"mysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 register_tortoise(
     app,
     db_url=DATABASE_URL,
-    modules={"models": ["server.models"]},
+    modules={"models": ["models"]},
     generate_schemas=True,
     add_exception_handlers=True,
 )
