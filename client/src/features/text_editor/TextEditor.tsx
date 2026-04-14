@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+/* gitleaks:allow */
 import Editor from '@monaco-editor/react';
 
 import { 
@@ -7,6 +8,21 @@ import {
 
 import { VscFolder, VscFileCode, VscNewFile, VscNewFolder, VscTerminal, VscSettingsGear, VscSourceControl, VscFiles, VscEdit, VscTrash, VscClose, VscRunAll } from 'react-icons/vsc';
 import './textEditor.scss';
+/* gitleaks:allow */
+const THEME_COLORS = {
+  folder: '#dcb67a',
+  js: '#f7df1e',
+  jsx: '#61dafb',
+  ts: '#007acc',
+  tsx: '#007acc',
+  html: '#e34f26',
+  css: '#1572b6',
+  scss: '#c6538c',
+  py: '#3776ab',
+  json: '#cbcb41',
+  defaultIcon: '#999',
+  terminalLine: '#1e1e1e' 
+};
 
 interface FileItem {
   id: string;
@@ -26,24 +42,23 @@ const TextEditor: React.FC = () => {
 
   const roomName = "NEBULA_PREMIUM_ROOM"; 
 
-  /* gitleaks:allow */
   const getFileIcon = (fileName: string, type: 'file' | 'folder') => {
-    if (type === 'folder') return <VscFolder style={{ color: '#dcb67a', fontSize: '18px' }} />;
+    if (type === 'folder') return <VscFolder style={{ color: THEME_COLORS.folder, fontSize: '18px' }} />;
     
     const ext = fileName.split('.').pop()?.toLowerCase();
 
     
     switch (ext) {
-      case 'js': return <SiJavascript style={{ color: '#f7df1e', fontSize: '16px' }} />;
-      case 'jsx': return <SiReact style={{ color: '#61dafb', fontSize: '16px' }} />;
-      case 'ts': return <SiTypescript style={{ color: '#007acc', fontSize: '16px' }} />;
-      case 'tsx': return <SiReact style={{ color: '#007acc', fontSize: '16px' }} />;
-      case 'html': return <SiHtml5 style={{ color: '#e34f26', fontSize: '16px' }} />;
-      case 'css': return <SiCss style={{ color: '#1572b6', fontSize: '16px' }} />;
-      case 'scss': return <SiSass style={{ color: '#c6538c', fontSize: '16px' }} />;
-      case 'py': return <SiPython style={{ color: '#3776ab', fontSize: '16px' }} />;
-      case 'json': return <SiJson style={{ color: '#cbcb41', fontSize: '16px' }} />;
-      default: return <VscFileCode style={{ color: '#999', fontSize: '18px' }} />;
+      case 'js': return <SiJavascript style={{ color: THEME_COLORS.js, fontSize: '16px' }} />;
+      case 'jsx': return <SiReact style={{ color: THEME_COLORS.jsx, fontSize: '16px' }} />;
+      case 'ts': return <SiTypescript style={{ color: THEME_COLORS.ts, fontSize: '16px' }} />;
+      case 'tsx': return <SiReact style={{ color: THEME_COLORS.tsx, fontSize: '16px' }} />;
+      case 'html': return <SiHtml5 style={{ color: THEME_COLORS.html, fontSize: '16px' }} />;
+      case 'css': return <SiCss style={{ color: THEME_COLORS.css, fontSize: '16px' }} />;
+      case 'scss': return <SiSass style={{ color: THEME_COLORS.scss, fontSize: '16px' }} />;
+      case 'py': return <SiPython style={{ color: THEME_COLORS.py, fontSize: '16px' }} />;
+      case 'json': return <SiJson style={{ color: THEME_COLORS.json, fontSize: '16px' }} />;
+      default: return <VscFileCode style={{ color: THEME_COLORS.defaultIcon, fontSize: '18px' }} />;
     }
   };
 
@@ -121,7 +136,7 @@ const TextEditor: React.FC = () => {
             {isCreating && (
               <div className="input-row">
                 
-                {isCreating === 'file' ? <VscFileCode color="#999"/> : <VscFolder color="#dcb67a"/>}
+                {isCreating === 'file' ? <VscFileCode color={THEME_COLORS.defaultIcon}/> : <VscFolder color={THEME_COLORS.folder}/>}
                 <input autoFocus value={newName} onChange={(e) => setNewName(e.target.value)} onKeyDown={handleCreate} onBlur={() => setIsCreating(null)} placeholder="Name..." />
               </div>
             )}
