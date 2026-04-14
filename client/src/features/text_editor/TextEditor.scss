@@ -1,0 +1,286 @@
+.nebula-main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #0f0f0f;
+  color: #d1d1d1;
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  // --- BETTER NAVBAR ---
+  .top-nav {
+    height: 50px;
+    background: rgba(30, 30, 31, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    border-bottom: 1px solid #2a2a2a;
+    z-index: 10;
+
+    .left-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .logo-icon {
+        font-size: 22px;
+      }
+      .logo-text {
+        font-size: 20px;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: 2px;
+      }
+      .sub-text {
+        font-size: 12px;
+        color: #666;
+        font-weight: 400;
+        margin-left: 5px;
+        border-left: 1px solid #444;
+        padding-left: 10px;
+      }
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      .room-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .label {
+          font-size: 9px;
+          color: #888;
+          font-weight: bold;
+        }
+        .value {
+          font-size: 12px;
+          color: #4fc1ff;
+          font-weight: 600;
+        }
+      }
+      .run-button {
+        background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+        color: white;
+        border: none;
+        padding: 6px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+        transition: 0.3s;
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+        }
+      }
+    }
+  }
+
+  .editor-body {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+
+    .activity-bar {
+      width: 55px;
+      background: #181818;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      .icon {
+        font-size: 26px;
+        cursor: pointer;
+        opacity: 0.3;
+        padding: 15px 0;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease;
+        &:hover {
+          opacity: 0.7;
+        }
+        &.active {
+          opacity: 1;
+          color: #fff;
+          border-left: 3px solid #007acc;
+        }
+      }
+    }
+
+    .explorer-sidebar {
+      background: #1e1e1e;
+      border-right: 1px solid #2a2a2a;
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      &.expanded {
+        width: 280px;
+      }
+      &.collapsed {
+        width: 0;
+        border: none;
+      }
+
+      .sidebar-header {
+        padding: 15px;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #999;
+        .actions {
+          display: flex;
+          gap: 12px;
+          cursor: pointer;
+          font-size: 16px;
+          svg:hover {
+            color: white;
+          }
+        }
+      }
+
+      .tree-container {
+        .input-row,
+        .tree-item {
+          padding: 8px 15px;
+          display: flex;
+          align-items: center;
+          font-size: 14px; // Increased tree font size
+          input {
+            background: #2d2d2d;
+            border: 1px solid #007acc;
+            color: #fff;
+            width: 100%;
+            outline: none;
+            margin-left: 5px;
+            padding: 2px 5px;
+            border-radius: 2px;
+          }
+        }
+        .tree-item {
+          justify-content: space-between;
+          cursor: pointer;
+          &:hover {
+            background: #2a2d2e;
+            .item-tools {
+              display: flex;
+            }
+          }
+          &.active {
+            background: #37373d;
+            color: #fff;
+          }
+          .item-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .file-icon {
+              display: flex;
+              align-items: center;
+              font-size: 18px;
+            }
+          }
+          .item-tools {
+            display: none;
+            gap: 12px;
+            opacity: 0.5;
+            svg:hover {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .main-editor-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: #1e1e1e;
+
+      .tab-header {
+        height: 40px;
+        background: #252526;
+        display: flex;
+        .active-tab {
+          background: #1e1e1e;
+          padding: 0 20px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 13px;
+          border-right: 1px solid #111;
+          border-top: 2px solid #007acc;
+          .close-icon {
+            cursor: pointer;
+            margin-left: 10px;
+            &:hover {
+              color: #ff4d4d;
+            }
+          }
+        }
+      }
+
+      .monaco-box {
+        flex: 1;
+        .empty-placeholder {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          opacity: 0.15;
+          .central-logo {
+            font-size: 150px;
+            margin-bottom: 20px;
+          }
+          h1 {
+            font-size: 60px;
+            margin: 0;
+            font-weight: 900;
+            letter-spacing: 5px;
+          }
+          p {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .terminal-panel {
+        height: 220px;
+        background: #1e1e1e;
+        border-top: 1px solid #333;
+        transition: 0.2s;
+        &.closed {
+          height: 0;
+          overflow: hidden;
+          border: none;
+        }
+        .term-header {
+          background: #252526;
+          padding: 8px 20px;
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          font-weight: bold;
+          .close-term {
+            cursor: pointer;
+            font-size: 16px;
+          }
+        }
+        .term-body {
+          padding: 15px;
+          color: #00ff00;
+          font-family: "Fira Code", monospace;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

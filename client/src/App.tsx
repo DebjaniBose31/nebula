@@ -1,7 +1,11 @@
-import AuthRouter from "./routes/AuthRouter";
+import TextEditor from './features/text_editor/TextEditor'
 
 function App() {
-  return <AuthRouter />;
+  return (
+    <div className="app-container">
+      <TextEditor />
+    </div>
+  )
 }
 
-export default App;
+export default App
