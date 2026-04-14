@@ -182,7 +182,7 @@ const TextEditor: React.FC = () => {
                 language="javascript" 
                 options={{ 
                   fontSize: 18, minimap: { enabled: true },
-                  placeholder: "Start coding your masterpiece here..." 
+                  placeholder: "Start coding your masterpiece here..." // gitleaks:allow
                   }}
               />
             ) : (
